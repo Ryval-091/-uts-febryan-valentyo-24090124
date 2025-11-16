@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+  :root {
+    --sidebar:#f1f2f4;
+    --muted:#8b93a8;
+    --accent:#4a7cff;
+    --bg:#f6f7fb;
+    --panel:#fff;
+    --border:#eef0f6;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:Inter, Arial, sans-serif;
+    background:var(--bg);
+    color:#1f2b4d;
+  }
+
+  .layout{
+    display:flex;
+    min-height:100vh;
+  }
+
+  /* SIDEBAR (sama seperti products) */
+  .sidebar{
+    width:72px;
+    background:var(--sidebar);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:18px 8px;
+    box-shadow: inset -1px 0 0 rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    height:100vh;
+  }
+
+  .icons{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    height:100%;
+    justify-content:center;
+  }
+
+  .icon{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    color:#6b738b;
+    cursor:pointer;
+    font-size:18px;
+    transition:.2s;
+  }
+
+  .icon.active{
+        background:#e9ebf5;
+        color:#4a7cff;
+}
+    .icon:hover{
+            background:#eceef4;
+    }
+
+  .main{
+    flex:1;
+    padding:36px 48px;
+  }
+
+  h1{
+    margin:0 0 18px;
+    font-size:28px;
+  }
+
+  .panel{
+    background:var(--panel);
+    border-radius:10px;
+    padding:22px;
+    border:1px solid var(--border);
+    box-shadow:0 6px 18px rgba(30,40,80,0.05);
+    max-width:820px;
+  }
+
+  
+  .metrics{
+    display:flex;
+    gap:18px;
+  }
+
+  .metric{
+    flex:1;
+    background:var(--panel);
+    border-radius:10px;
+    padding:20px;
+    border:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 6px 18px rgba(30,40,80,0.04);
+  }
+
+  .metric .m-icon{
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    background:#fafbff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:10px;
+    color:#7e89b8;
+    font-size:20px;
+  }
+
+  .label{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+
+  .value{
+    font-size:20px;
+    font-weight:700;
+    color:#14213d;
+  }
+
+  @media(max-width:800px){
+    .layout{ flex-direction:column; }
+    .sidebar{
+      width:100%;
+      height:64px;
+      flex-direction:row;
+      justify-content:center;
+    }
+    .icons{
+      flex-direction:row;
+      height:auto;
+    }
+    .main{ padding:20px; }
+    .metrics{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="icons">
+      <div class="icon active" onclick="location.href='dashboard.html'"><i class="fa fa-home"></i></div>
+      <div class="icon" onclick="location.href='dashboard.html'"><i class="fa fa-th"></i></div>
+      <div class="icon" onclick="location.href='products.html'"><i class="fa fa-box"></i></div>
+      <div class="icon" onclick="location.href='products.html'"><i class="fa fa-chart-bar"></i></div>
+      <div class="icon" onclick="location.href='index.html'"><i class="fa fa-cog"></i></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h1>Dashboard</h1>
+
+    <div class="panel">
+      <div class="metrics">
+
+        <div class="metric">
+          <div class="m-icon"><i class="fa fa-box"></i></div>
+          <div class="label">Total Products</div>
+          <div class="value">120</div>
+        </div>
+
+        <div class="metric">
+          <div class="m-icon"><i class="fa fa-shopping-cart"></i></div>
+          <div class="label">Total Sales</div>
+          <div class="value">85</div>
+        </div>
+
+        <div class="metric">
+          <div class="m-icon"><i class="fa fa-dollar-sign"></i></div>
+          <div class="label">Total Revenue</div>
+          <div class="value">Rp 12.500.000</div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>
